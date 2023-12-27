@@ -1,0 +1,10 @@
+name: devsecops-pipeline
+run-name:  ${{ github.actor }} pushed code to the repository.
+on: [push]
+jobs:
+  SAST-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Snyk SAST scanning
+        uses: snyk/actions/node@master
